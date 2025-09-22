@@ -25,7 +25,7 @@ module.exports = {
     'no-return-await': 'off',
     'indent': ['error', 2],
     'no-trailing-spaces': 'error',
-    'eol-last': 'error',
+    'eol-last': ['error', 'always'],
     'no-restricted-syntax': [
       'error',
       'LabeledStatement',
