@@ -36,6 +36,21 @@ class DBClient {
     }
     return 0;
   }
+
+  async findUserByEmail(email) {
+    if (this.db) {
+      return this.db.collection('users').findOne({ email });
+    }
+    return null;
+  }
+  
+  async createUser(email, password) {
+    if (this.db) {
+      const result = await this.db.collection('users').insertOne({ email, password });
+      return { _id: result.insertedId, email, password };
+    }
+    return null;
+  }
 }
 
 const dbClient = new DBClient();
