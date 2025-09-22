@@ -51,6 +51,13 @@ class DBClient {
     }
     return null;
   }
+
+  async findUserById(id) {
+    if (this.db) {
+      return this.db.collection('users').findOne({ _id: new mongo.ObjectId(id) });
+    }
+    return null;
+  }
 }
 
 const dbClient = new DBClient();
